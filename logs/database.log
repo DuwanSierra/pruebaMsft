@@ -1,0 +1,15 @@
+2020-09-19T12:07:20.244-0500 ERROR Violación de una restricción de Integridad Referencial: "FKSOR2QMI3THAO7A8OR49VLOHP9: PUBLIC.VENTA FOREIGN KEY(ID_CLIENTE) REFERENCES PUBLIC.CLIENTE(IDCLIENTE) (1)"
+Referential integrity constraint violation: "FKSOR2QMI3THAO7A8OR49VLOHP9: PUBLIC.VENTA FOREIGN KEY(ID_CLIENTE) REFERENCES PUBLIC.CLIENTE(IDCLIENTE) (1)"; SQL statement:
+insert into venta (id_venta, id_cliente) values (null, ?) [23506-200]
+2020-09-19T17:10:11.591-0500 ERROR Columna "VENTA0_.ID_VENTA" no encontrada
+Column "VENTA0_.ID_VENTA" not found; SQL statement:
+select venta0_.id_venta as id_venta1_3_0_, venta0_.id_cliente as id_clien2_3_0_, cliente1_.idcliente as idclient1_0_1_, cliente1_.apellido as apellido2_0_1_, cliente1_.dni as dni3_0_1_, cliente1_.email as email4_0_1_, cliente1_.nombre as nombre5_0_1_, cliente1_.telefono as telefono6_0_1_ from venta venta0_ left outer join cliente cliente1_ on venta0_.id_cliente=cliente1_.idcliente where venta0_.id_venta=? [42122-200]
+2020-09-19T19:11:19.101-0500 ERROR La columna "IDCLIENTE" no permite valores nulos (NULL)
+NULL not allowed for column "IDCLIENTE"; SQL statement:
+insert into venta (idventa, idcliente) values (null, ?) [23502-200]
+2020-09-19T19:19:07.917-0500 ERROR La columna "IDCLIENTE" no permite valores nulos (NULL)
+NULL not allowed for column "IDCLIENTE"; SQL statement:
+insert into venta (idventa, idcliente) values (null, ?) [23502-200]
+2020-09-19T19:20:46.912-0500 ERROR La columna "IDCLIENTE" no permite valores nulos (NULL)
+NULL not allowed for column "IDCLIENTE"; SQL statement:
+insert into venta (idventa, idcliente) values (null, ?) [23502-200]

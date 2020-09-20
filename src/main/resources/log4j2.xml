@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"  monitorInterval="30">
+
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n</Property>
+        <Property name="APP_LOG_ROOT">./logs</Property>
+    </Properties>
+
+    <Appenders>
+
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="login" fileName="${sys:APP_LOG_ROOT}/login.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="save-venta" fileName="${sys:APP_LOG_ROOT}/save-venta.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="find-venta" fileName="${sys:APP_LOG_ROOT}/find-venta.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="save-cliente" fileName="${sys:APP_LOG_ROOT}/save-cliente.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="delete-producto" fileName="${sys:APP_LOG_ROOT}/delete-producto.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+        <RollingFile name="find-producto-by-id" fileName="${sys:APP_LOG_ROOT}/find-producto-by-id.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-%d{yyyy-MM-dd}-%i.log" >
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="springLog" fileName="${sys:APP_LOG_ROOT}/spring-framework.log"
+                     filePattern="${sys:APP_LOG_ROOT}/spring-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="aopLog" fileName="${sys:APP_LOG_ROOT}/application-aop.log"
+                     filePattern="${sys:APP_LOG_ROOT}/application-aop-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="hibernateLog" fileName="${sys:APP_LOG_ROOT}/database.log"
+                     filePattern="${sys:APP_LOG_ROOT}/spring-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="login" additivity="false" level="debug">
+            <AppenderRef ref="login" />
+            <AppenderRef ref="console"  />
+        </Logger>
+
+
+        <Logger name="org.springframework" additivity="false" level="error">
+            <AppenderRef ref="springLog" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Logger name="org.hibernate" additivity="false" level="error">
+            <AppenderRef ref="hibernateLog" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Logger name="/api/venta/save-venta" additivity="false" level="error">
+            <AppenderRef ref="save-venta" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Logger name="/api/venta/find-venta" additivity="false" level="error">
+            <AppenderRef ref="find-venta" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Logger name="/api/cliente/save-cliente" additivity="false" level="error">
+            <AppenderRef ref="save-venta" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Logger name="/api/producto/delete-producto" additivity="false" level="error">
+            <AppenderRef ref="delete-producto" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Logger name="/api/producto/find-producto-by-id" additivity="false" level="error">
+            <AppenderRef ref="find-producto-by-id" />
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="console"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

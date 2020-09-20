@@ -1,0 +1,1 @@
+2020-09-19T12:07:20.267-0500 ERROR Code App: 0 -- Message:Error al realizar la acción -- BackendMessage:could not execute statement; SQL [n/a]; constraint [FKSOR2QMI3THAO7A8OR49VLOHP9]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement -- HttpStatus:400
